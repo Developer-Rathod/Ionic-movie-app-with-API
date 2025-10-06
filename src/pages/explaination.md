@@ -1,1 +1,6 @@
 
+The code defines an asynchronous function called searchMovies. This function is responsible for fetching movie data from an external API based on a user's search input. It first constructs the request URL by concatenating a base API URL (apiUrl) with the current value of searchInput, which likely contains the user's search term.
+
+The function then uses the fetch API to send a GET request to the constructed URL. The await keyword ensures that the function waits for the fetch operation to complete before proceeding. The response from the fetch call is processed using .then() chains: first, the response is converted to JSON format, and then the resulting data object is used to update the application's state. Specifically, it calls setMovielist(data.Search), which updates the list of movies displayed to the user with the search results returned by the API.
+
+A potential "gotcha" here is the mixing of await with .then() chains. While this works, it's generally clearer and more idiomatic to use either async/await or .then() consistently. For example, you could use const res = await fetch(url); const data = await res.json(); for better readability. Additionally, the code assumes that data.Search always exists, which might not be the case if the API returns an error or an unexpected response. Adding error handling would make the function more robust.
