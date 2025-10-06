@@ -29,6 +29,12 @@ const SearchResults: React.FC<{movielist: MovieItem[]}> = (props) => {
 		</IonItem> : null);
 }
 
+/* 
+The code defines an asynchronous function called searchMovies. 
+This function is responsible for fetching movie data from an external API based on a user's search input.
+It first constructs the request URL by concatenating a base API URL (apiUrl) with the current value of searchInput, 
+which likely contains the user's search term.
+*/
 const Movies: React.FC = () => {
 	const apiUrl = "http://www.omdbapi.com/?apikey=24c608e2&s=";
     //const apiUrl = "http://www.omdbapi.com/?apikey=baf86d0e";
@@ -67,5 +73,6 @@ const Movies: React.FC = () => {
 		</IonPage>
 	);
 };
+
 
 export default Movies;
